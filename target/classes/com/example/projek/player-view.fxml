@@ -4,12 +4,12 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-image: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projek.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projek.HelloController">
    <children>
-      <ListView fx:id="name" prefHeight="500.0" prefWidth="200.0" />
-      <ListView fx:id="team" layoutX="200.0" prefHeight="500.0" prefWidth="200.0" />
-      <Button fx:id="test" layoutX="130.0" layoutY="454.0" mnemonicParsing="false" onAction="#generate" prefHeight="46.0" prefWidth="140.0" text="Anzeigen" />
-      <ListView fx:id="auswahl" layoutX="400.0" prefHeight="500.0" prefWidth="100.0" />
-      <Button layoutX="423.0" layoutY="22.0" mnemonicParsing="false" onAction="#goplayer" text="Button" />
+      <ListView fx:id="name" layoutY="50.0" prefHeight="450.0" prefWidth="200.0" />
+      <ListView fx:id="team" layoutX="200.0" layoutY="50.0" prefHeight="450.0" prefWidth="200.0" />
+      <Button fx:id="test" layoutX="129.0" layoutY="5.0" mnemonicParsing="false" onAction="#generate" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: gray;" text="Anzeigen" textFill="#00fb00" />
+      <ListView fx:id="auswahl" layoutX="400.0" layoutY="50.0" prefHeight="450.0" prefWidth="100.0" />
+      <Button layoutX="17.0" layoutY="4.0" mnemonicParsing="false" onAction="#home" prefHeight="40.0" prefWidth="71.0" style="-fx-background-color: gray;" text="Home" textFill="#00fb00" />
    </children>
 </AnchorPane>

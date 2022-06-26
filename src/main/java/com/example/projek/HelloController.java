@@ -100,14 +100,15 @@ public class HelloController {
         }
     }
 
+    @FXML
     public void generatec(){
         namec.getItems().clear();
         teamc.getItems().clear();
-        for (RegisterdCoach rp: data.getCoaches()
+        for (RegisterdCoach rc: data.getCoaches()
         ) {
-            if(rp.getReference()!=null){
-                namec.getItems().add(rp.getReference().getName() + " " + rp.getReference().getVorname());
-                teamc.getItems().add(rp.getReference().getTeam());
+            if(rc.getReference()!=null){
+                namec.getItems().add(rc.getReference().getName() + " " + rc.getReference().getVorname());
+                teamc.getItems().add(rc.getReference().getTeam());
             }
         }
     }
@@ -179,5 +180,11 @@ public class HelloController {
         Stage stage = (Stage) b.getScene().getWindow();
         goToView("person-view.fxml", "Person", stage);
 
+    }
+
+    public void home(ActionEvent event) throws IOException {
+        Button b =(Button) event.getSource();
+        Stage stage =(Stage) b.getScene().getWindow();
+        goToView("selection-view.fxml", "Selection", stage);
     }
 }

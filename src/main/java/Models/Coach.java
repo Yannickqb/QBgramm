@@ -15,7 +15,7 @@ public class Coach{
     private String name;
     private Date geburtsdatum;
 
-    public Coach(Date geburtsdatum, String vorname, String name, Team team, ArrayList<Match> matches, ArrayList<CoachPosition> coachPositions) {
+    public Coach(Date geburtsdatum, String vorname, String name, Team team, ArrayList<Match> matches, CoachPosition coachPosition) {
         this.team = team;
         this.matches = matches;
         team.addCoache(this);
@@ -23,6 +23,10 @@ public class Coach{
         this.vorname = vorname;
         this.name = name;
         this.geburtsdatum = geburtsdatum;
+    }
+
+    public Team getTeamReference() {
+        return team;
     }
 
     public Team getTeam() {
