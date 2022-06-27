@@ -1,6 +1,7 @@
 package com.example.projek;
 
 import Data.DB;
+import Exceptions.NothingSelectedException;
 import Models.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 
@@ -17,7 +19,7 @@ import java.util.Optional;
 
 /**
  * @author Yannick Ledermann
- * @version 1.0
+ * @version 1.3
  */
 public class HelloController {
 
@@ -32,6 +34,12 @@ public class HelloController {
 
     @FXML
     public TextField nachname;
+
+    @FXML
+    public Label namepv;
+
+
+    public Label testn;
 
     private Stage stage;
 
@@ -68,7 +76,9 @@ public class HelloController {
     @FXML
     private ListView teamc;
 
-    private User currentUser;
+    static private RegisterdPlayer selectedPlayer = null;
+
+    static private User currentUser;
 
     @FXML
     private void login(ActionEvent event) throws IOException {
@@ -186,5 +196,32 @@ public class HelloController {
         Button b =(Button) event.getSource();
         Stage stage =(Stage) b.getScene().getWindow();
         goToView("selection-view.fxml", "Selection", stage);
+    }
+
+    public void onMouseClickedP(MouseEvent mouseEvent) throws IOException {
+        int index = name.getSelectionModel().getSelectedIndex();
+        selectedPlayer = data.getPlayers().get(index);
+        testn.setText(selectedPlayer.getVorname());
+    }
+
+
+
+    public void gen(ActionEvent event) throws NothingSelectedException {
+        if (selectedPlayer == null) throw new NothingSelectedException("no player selected");
+        namepv.setText(selectedPlayer.getVorname() + " " + selectedPlayer.getNachname());
+
+
+
+    }
+
+    public void gopers(ActionEvent event) throws IOException {
+        Button b =(Button) event.getSource();
+        Stage stage =(Stage) b.getScene().getWindow();
+        //if (selectedPlayer != null) {
+        goToView("person-view.fxml", "Person", stage);
+
+    }
+
+    public void contact(ActionEvent event) {
     }
 }

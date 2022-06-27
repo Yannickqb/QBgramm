@@ -12,11 +12,11 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-image: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projek.HelloController">
    <children>
-      <BorderPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: green;">
+      <BorderPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: gray;">
          <top>
-            <Label prefHeight="87.0" prefWidth="98.0" text="Name" textAlignment="CENTER" BorderPane.alignment="CENTER">
+            <Label fx:id="namepv" prefHeight="87.0" prefWidth="199.0" text="QBGramm" textAlignment="CENTER" textFill="LIME" BorderPane.alignment="CENTER">
                <font>
-                  <Font name="American Typewriter" size="32.0" />
+                  <Font name="Arial Black" size="32.0" />
                </font>
             </Label>
          </top>
@@ -46,5 +46,6 @@
             </TableView>
          </right>
       </BorderPane>
+      <Button mnemonicParsing="false" onAction="#gen" text="Button" />
    </children>
 </AnchorPane>

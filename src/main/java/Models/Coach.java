@@ -5,7 +5,7 @@ import java.util.Date;
 
 /**
  * @author Yannick Ledermann
- * @version 1.0
+ * @version 1.3
  */
 public class Coach{
     private Team team;
@@ -29,9 +29,7 @@ public class Coach{
         return team;
     }
 
-    public Team getTeam() {
-        return team;
-    }
+    public String  getTeam() {return team.getName();}
 
     public ArrayList<Match> getMatches() {
         return matches;

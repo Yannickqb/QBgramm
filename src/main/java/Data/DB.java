@@ -9,7 +9,7 @@ import java.util.Optional;
 
 /**
  * @author Yannick Ledermann
- * @version 1.0
+ * @version 1.3
  */
 public class DB {
     ArrayList<RegisterdUser> registerdUsers = new ArrayList<>();
@@ -30,6 +30,10 @@ public class DB {
         this.registerdUsers.add(rp1);
         this.registerdPlayers.add(rp1);
         rp1.setReference(p1);
+        RegisterdPlayer rp2 = new RegisterdPlayer("gg", "1234", new Date(2000, 05, 11), new Date(2022, 2, 20), "gg", "ff", "ffff");
+        this.registerdUsers.add(rp2);
+        this.registerdPlayers.add(rp2);
+        rp2.setReference(p2);
         RegisterdCoach rc1 = new RegisterdCoach("coach", "1234", new Date(1989,12,11), new Date(2020, 10, 20), "Jens", "Urben", "jens.urben@gmail.com");
         this.registerdUsers.add(rc1);
         this.registerdCoaches.add(rc1);

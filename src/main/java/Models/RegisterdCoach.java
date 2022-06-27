@@ -4,7 +4,7 @@ import java.util.Date;
 
 /**
  * @author Yannick Ledermann
- * @version 1.0
+ * @version 1.3
  */
 public class RegisterdCoach extends RegisterdUser{
     private Coach reference;

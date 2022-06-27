@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projek.HelloController">
    <children>
-      <Button layoutX="223.0" layoutY="114.0" mnemonicParsing="false" onAction="#playerview" text="Player" />
-      <Button layoutX="223.0" layoutY="230.0" mnemonicParsing="false" onAction="#back" text="Back" />
-      <Button layoutX="223.0" layoutY="169.0" mnemonicParsing="false" onAction="#coachview" text="Coach" />
+      <SplitPane dividerPositions="0.6335341365461847" orientation="VERTICAL" prefHeight="500.0" prefWidth="500.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="498.0" style="-fx-background-color: gray;">
+               <children>
+                  <Label layoutX="-6.0" layoutY="58.0" prefHeight="270.0" prefWidth="506.0" style="-fx-background-color: black;" />
+                  <Button layoutX="269.0" layoutY="124.0" mnemonicParsing="false" onAction="#coachview" style="-fx-background-color: gray;" text="Coach" textFill="#00fb00" />
+                  <Button layoutX="270.0" layoutY="180.0" mnemonicParsing="false" onAction="#playerview" style="-fx-background-color: gray;" text="Player" textFill="#00fb00" />
+                  <Label layoutX="176.0" layoutY="128.0" text="Do you need a " textFill="#00fb00" />
+                  <Label layoutX="178.0" layoutY="185.0" text="Do you need a " textFill="#00fb00" />
+                  <Label layoutX="107.0" layoutY="-6.0" prefHeight="71.0" prefWidth="269.0" text="QBGramm" textFill="#00fb00">
+                     <font>
+                        <Font name="Arial Black" size="48.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="131.0" prefWidth="498.0">
+               <children>
+                  <Button layoutX="217.0" layoutY="110.0" mnemonicParsing="false" onAction="#back" text="logg out " />
+                  <Label layoutX="207.0" layoutY="83.0" text="Do you want to " />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>
