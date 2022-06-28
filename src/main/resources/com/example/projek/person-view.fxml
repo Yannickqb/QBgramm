@@ -6,9 +6,10 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projek.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projek.HelloController">
    <children>
       <GridPane prefHeight="500.0" prefWidth="500.0">
         <columnConstraints>
@@ -24,17 +25,25 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label fx:id="yards" prefHeight="77.0" prefWidth="254.0" text="Label" GridPane.rowIndex="2" />
-            <Label fx:id="yardsrushing" prefHeight="77.0" prefWidth="254.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label fx:id="td" prefHeight="77.0" prefWidth="254.0" text="Label" GridPane.rowIndex="3" />
-            <Label prefHeight="77.0" prefWidth="254.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-            <Label fx:id="interseptions" prefHeight="77.0" prefWidth="254.0" text="Label" GridPane.rowIndex="4" />
-            <Label fx:id="qbr" prefHeight="77.0" prefWidth="254.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-            <Label prefHeight="77.0" prefWidth="254.0" text="Label" GridPane.rowIndex="5" />
-            <Label prefHeight="77.0" prefWidth="254.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label text="Label" />
-            <Label fx:id="namepv" prefHeight="101.0" prefWidth="249.0" text="Label" GridPane.rowIndex="1" />
-            <Label fx:id="teampv" prefHeight="101.0" prefWidth="249.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Label fx:id="yards" prefHeight="77.0" prefWidth="254.0" textFill="LIME" GridPane.rowIndex="2" />
+            <Label fx:id="yardsrushing" prefHeight="77.0" prefWidth="254.0" textFill="LIME" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label fx:id="td" prefHeight="77.0" prefWidth="254.0" textFill="LIME" GridPane.rowIndex="3" />
+            <Label prefHeight="77.0" prefWidth="254.0" textFill="LIME" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label fx:id="interseptions" prefHeight="77.0" prefWidth="254.0" textFill="LIME" GridPane.rowIndex="4" />
+            <Label fx:id="qbr" prefHeight="77.0" prefWidth="254.0" textFill="LIME" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <Label prefHeight="77.0" prefWidth="254.0" textFill="LIME" GridPane.rowIndex="5" />
+            <Label prefHeight="77.0" prefWidth="254.0" textFill="LIME" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label />
+            <Label fx:id="namepv" prefHeight="101.0" prefWidth="249.0" textFill="LIME" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="teampv" prefHeight="101.0" prefWidth="249.0" textFill="LIME" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
             <GridPane GridPane.columnIndex="1">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -45,9 +54,21 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#showstats" prefHeight="110.0" prefWidth="251.0" text="Show Player stats" />
-                  <Button mnemonicParsing="false" onAction="#dm" prefHeight="130.0" prefWidth="251.0" text="DM" GridPane.rowIndex="1" />
-                  <Button mnemonicParsing="false" onAction="#home" prefHeight="122.0" prefWidth="251.0" text="Home" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#showstats" prefHeight="110.0" prefWidth="251.0" style="-fx-background-color: gray;" text="Show Player stats" textFill="LIME">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#dm" prefHeight="130.0" prefWidth="251.0" style="-fx-background-color: gray;" text="DM" textFill="LIME" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#home" prefHeight="122.0" prefWidth="251.0" style="-fx-background-color: gray;" text="Home" textFill="LIME" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </GridPane>
          </children>
