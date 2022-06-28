@@ -41,6 +41,22 @@ public class HelloController {
 
     public Label testn;
 
+    public Label teampv;
+
+    public Label qbr;
+
+    public Label interseptions;
+
+    public Label td;
+
+    public Label yardsrushing;
+
+    public Label yards;
+
+    public Label namepvc;
+
+    public Label teampvc;
+
     private Stage stage;
 
     @FXML
@@ -77,6 +93,8 @@ public class HelloController {
     private ListView teamc;
 
     static private RegisterdPlayer selectedPlayer = null;
+
+    static private RegisterdCoach selectedCoach = null;
 
     static private User currentUser;
 
@@ -185,12 +203,6 @@ public class HelloController {
         goToView("coaches-view.fxml", "Coach", stage);
     }
 
-    public void goplayer(ActionEvent event) throws IOException {
-        Button b =(Button) event.getSource();
-        Stage stage = (Stage) b.getScene().getWindow();
-        goToView("person-view.fxml", "Person", stage);
-
-    }
 
     public void home(ActionEvent event) throws IOException {
         Button b =(Button) event.getSource();
@@ -223,5 +235,36 @@ public class HelloController {
     }
 
     public void contact(ActionEvent event) {
+    }
+
+    public void showstats(ActionEvent event) throws NothingSelectedException {
+        if (selectedPlayer == null) throw new NothingSelectedException("no player selected");
+        namepv.setText(selectedPlayer.getVorname() + " " + selectedPlayer.getNachname());
+        teampv.setText(selectedPlayer.getReference().getTeam());
+        //yards.setText(selectedPlayer.getReference().gety);
+        //yardsrushing.setText(selectedPlayer);
+
+    }
+
+    public void dm(ActionEvent event) {
+    }
+
+    public void onMouseClickedC(MouseEvent mouseEvent) throws IOException {
+        int index = namec.getSelectionModel().getSelectedIndex();
+        selectedCoach = data.getCoaches().get(index);
+        testn.setText(selectedCoach.getVorname());
+    }
+
+    public void goPersc(ActionEvent event) throws IOException {
+        Button b =(Button) event.getSource();
+        Stage stage =(Stage) b.getScene().getWindow();
+        //if (selectedPlayer != null) {
+        goToView("personc-view.fxml", "Person", stage);
+    }
+
+    public void showstatsc(ActionEvent event) throws NothingSelectedException {
+        if (selectedCoach == null) throw new NothingSelectedException("no player selected");
+        namepvc.setText(selectedCoach.getVorname() + " " + selectedCoach.getNachname());
+        teampvc.setText(selectedCoach.getReference().getTeam());
     }
 }

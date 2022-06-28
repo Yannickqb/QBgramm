@@ -15,6 +15,7 @@ public class Player {
     private String vorname;
     private String name;
     private Date geburtsdatum;
+    private Stats stats;
 
     public Player(Date geburtsdatum, String vorname, String nachname, Team team, ArrayList<Match> history, Position position) {
         this.team = team;
@@ -32,6 +33,9 @@ public class Player {
 
     public String getTeam(){return team.getName();}
 
+    //public String getYards(){};
+
+    //public String getYardsRushing(){return stats.getRushing(selectedPlayer)};
     public ArrayList<Match> getHistory() {
         return history;
     }

@@ -22,6 +22,9 @@ public class Stats {
         this.rushing = rushing;
         this.team = team;
     }
+
+
+
     public Player getPlayer(){
         return player;
     }
