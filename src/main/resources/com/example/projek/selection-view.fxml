@@ -8,22 +8,22 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.projek.HelloController">
    <children>
-      <SplitPane dividerPositions="0.6877510040160643" orientation="VERTICAL" prefHeight="500.0" prefWidth="500.0">
+      <SplitPane dividerPositions="0.7279116465863453" orientation="VERTICAL" prefHeight="500.0" prefWidth="500.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="300.0" prefWidth="498.0" style="-fx-background-color: gray;">
                <children>
-                  <Label layoutX="-6.0" layoutY="58.0" prefHeight="282.0" prefWidth="506.0" style="-fx-background-color: black;" />
+                  <Label layoutX="-6.0" layoutY="58.0" prefHeight="304.0" prefWidth="506.0" style="-fx-background-color: black;" />
                   <Button layoutX="275.0" layoutY="200.0" mnemonicParsing="false" onAction="#playerview" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: gray;" text="Player" textFill="#00fb00">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button layoutX="275.0" layoutY="124.0" mnemonicParsing="false" onAction="#coachview" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: gray;" text="Coach" textFill="#00fb00">
+                  <Button layoutX="275.0" layoutY="123.0" mnemonicParsing="false" onAction="#coachview" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: gray;" text="Coach" textFill="#00fb00">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Label layoutX="150.0" layoutY="131.0" text="Do you need a " textFill="#00fb00">
+                  <Label layoutX="150.0" layoutY="130.0" text="Do you need a " textFill="#00fb00">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -39,12 +39,22 @@
                      </font>
                   </Label>
                   <Label layoutX="239.0" layoutY="252.0" />
+                  <Label layoutX="150.0" layoutY="282.0" text="Do you need a " textFill="#00fb00">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="275.0" layoutY="276.0" mnemonicParsing="false" onAction="#teamview" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: gray;" text="Team" textFill="LIME">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="131.0" prefWidth="498.0">
                <children>
-                  <Button layoutX="218.0" layoutY="113.0" mnemonicParsing="false" onAction="#back" text="log out " />
-                  <Label layoutX="207.0" layoutY="83.0" text="Do you want to " />
+                  <Button layoutX="221.0" layoutY="66.0" mnemonicParsing="false" onAction="#back" text="log out " />
+                  <Label layoutX="207.0" layoutY="31.0" text="Do you want to " />
                </children>
             </AnchorPane>
         </items>

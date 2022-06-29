@@ -1,14 +1,13 @@
 package com.example.projek;
 
-import Data.DB;
-import Exceptions.NothingSelectedException;
-import Models.*;
+import com.example.projek.Data.DB;
+import com.example.projek.Exceptions.NothingSelectedException;
+import com.example.projek.Models.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -38,29 +37,43 @@ public class HelloController {
     @FXML
     public Label namepv;
 
-
+    @FXML
     public Label testn;
 
+    @FXML
     public Label teampv;
 
+    @FXML
     public Label qbr;
 
+    @FXML
     public Label interseptions;
 
+    @FXML
     public Label td;
 
+    @FXML
     public Label yardsrushing;
 
+    @FXML
     public Label yards;
 
+    @FXML
     public Label namepvc;
 
+    @FXML
     public Label teampvc;
 
-    private Stage stage;
+    @FXML
+    public Label namecd;
 
     @FXML
-    private Button conf;
+    public TextArea text;
+
+    @FXML
+    public ListView namet;
+
+    private Stage stage;
 
     @FXML
     private TextField username;
@@ -70,9 +83,6 @@ public class HelloController {
 
     @FXML
     private TextField output;
-
-    @FXML
-    private Button newconf;
 
     @FXML
     private TextField newusername;
@@ -96,8 +106,17 @@ public class HelloController {
 
     static private RegisterdCoach selectedCoach = null;
 
+    static private Stats selectedStats = null;
+
+    static private Team selectedTeam = null;
+
     static private User currentUser;
 
+    /**
+     * @param event
+     * @throws IOException
+     * checks the log in data
+     */
     @FXML
     private void login(ActionEvent event) throws IOException {
         Button b =(Button) event.getSource();
@@ -115,6 +134,9 @@ public class HelloController {
         }
     }
 
+    /**
+     * generates the list of all the players
+     */
     @FXML
     public void generate(){
         name.getItems().clear();
@@ -128,6 +150,9 @@ public class HelloController {
         }
     }
 
+    /**
+     * generates the list of all the coaches
+     */
     @FXML
     public void generatec(){
         namec.getItems().clear();
@@ -142,8 +167,13 @@ public class HelloController {
     }
 
 
-
-
+    /**
+     * @param view the Gui that should be opend
+     * @param title the titel of this view
+     * @param stage
+     * @throws IOException
+     * to go to a diverent view in general so I didn't have to write this for every view change.
+     */
     @FXML
     private void goToView(String view, String title, Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(view));
@@ -154,6 +184,10 @@ public class HelloController {
 
     }
 
+    /**
+     * @param stage
+     * is used to set the stage so the view can change
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
@@ -161,12 +195,22 @@ public class HelloController {
     private DB data = new DB();
 
 
+    /**
+     * @param event
+     * @throws IOException is thrown if something is wrong with the input or the output
+     * goes to the registration
+     */
     public void goregister(ActionEvent event) throws IOException {
         Button b =(Button) event.getSource();
         Stage stage = (Stage) b.getScene().getWindow();
         goToView("register-view.fxml", "Registration", stage);
     }
 
+    /**
+     * @param event
+     * @throws IOException is thrown if something is wrong with the input or the output
+     * confirms the new user details
+     */
     public void bestaetigen(ActionEvent event) throws IOException {
         String checkUsername = newusername.getText();
         String checkPassword = newpassword.getText();
@@ -185,6 +229,11 @@ public class HelloController {
         }
     }
 
+    /**
+     * @param event
+     * @throws IOException is thrown if something is wrong with the input or the output
+     * goes to the list of players
+     */
     public void playerview(ActionEvent event) throws IOException {
         Button b =(Button) event.getSource();
         Stage stage = (Stage) b.getScene().getWindow();
@@ -197,6 +246,11 @@ public class HelloController {
         goToView("hello-view.fxml", "Loggin", stage);
     }
 
+    /**
+     * @param event
+     * @throws IOException is thrown if something is wrong with the input or the output
+     * goes to the list of Coaches
+     */
     public void coachview(ActionEvent event) throws IOException {
         Button b =(Button) event.getSource();
         Stage stage = (Stage) b.getScene().getWindow();
@@ -204,6 +258,11 @@ public class HelloController {
     }
 
 
+    /**
+     * @param event
+     * @throws IOException is thrown if something is wrong with the input or the output
+     * goes back to the home view
+     */
     public void home(ActionEvent event) throws IOException {
         Button b =(Button) event.getSource();
         Stage stage =(Stage) b.getScene().getWindow();
@@ -226,6 +285,11 @@ public class HelloController {
 
     }
 
+    /**
+     * @param event
+     * @throws IOException is thrown if something is wrong with the input or the output
+     * opens the Player view
+     */
     public void gopers(ActionEvent event) throws IOException {
         Button b =(Button) event.getSource();
         Stage stage =(Stage) b.getScene().getWindow();
@@ -234,19 +298,25 @@ public class HelloController {
 
     }
 
-    public void contact(ActionEvent event) {
-    }
 
+    /**
+     * @param event
+     * @throws NothingSelectedException this exception is thrown if nothing is selected
+     * shows the stats of the selected player
+     */
     public void showstats(ActionEvent event) throws NothingSelectedException {
         if (selectedPlayer == null) throw new NothingSelectedException("no player selected");
         namepv.setText(selectedPlayer.getVorname() + " " + selectedPlayer.getNachname());
         teampv.setText(selectedPlayer.getReference().getTeam());
-        //yards.setText(selectedPlayer.getReference().gety);
+        yards.setText(selectedPlayer.getMail());
         //yardsrushing.setText(selectedPlayer);
 
     }
 
-    public void dm(ActionEvent event) {
+    public void dm(ActionEvent event) throws IOException {
+        Button b =(Button) event.getSource();
+        Stage stage =(Stage) b.getScene().getWindow();
+        goToView("send-view.fxml", "DM", stage);
     }
 
     public void onMouseClickedC(MouseEvent mouseEvent) throws IOException {
@@ -255,6 +325,10 @@ public class HelloController {
         testn.setText(selectedCoach.getVorname());
     }
 
+    /**
+     * @param event
+     * @throws IOException is thrown if something is wrong with the input or the output
+     */
     public void goPersc(ActionEvent event) throws IOException {
         Button b =(Button) event.getSource();
         Stage stage =(Stage) b.getScene().getWindow();
@@ -262,9 +336,46 @@ public class HelloController {
         goToView("personc-view.fxml", "Person", stage);
     }
 
+    /**
+     * @param event
+     * @throws NothingSelectedException this exception is thrown if nothing is selected
+     */
     public void showstatsc(ActionEvent event) throws NothingSelectedException {
-        if (selectedCoach == null) throw new NothingSelectedException("no player selected");
+        if (selectedCoach == null) throw new NothingSelectedException("no coach selected");
         namepvc.setText(selectedCoach.getVorname() + " " + selectedCoach.getNachname());
         teampvc.setText(selectedCoach.getReference().getTeam());
+    }
+
+    public void send(ActionEvent event) {
+
+    }
+
+    /**
+     * @param event
+     * @throws IOException is thrown if something is wrong with the input or the output
+     */
+    public void teamview(ActionEvent event) throws IOException {
+        Button b =(Button) event.getSource();
+        Stage stage = (Stage) b.getScene().getWindow();
+        goToView("team-view.fxml", "Team", stage);
+    }
+
+    /**
+     * @param mouseEvent
+     * @throws NothingSelectedException this exception is thrown if nothing is selected
+     */
+    public void onMouseClickedT(MouseEvent mouseEvent) throws NothingSelectedException {
+        if (selectedTeam == null) throw new NothingSelectedException("no team selected");
+        namepvc.setText(selectedTeam.getName());
+        ;
+    }
+
+
+    /**
+     * @param event
+     * opens the Person view for the Team
+     */
+    public void goperst(ActionEvent event) {
+        namet.setAccessibleText(selectedTeam.getName());
     }
 }
