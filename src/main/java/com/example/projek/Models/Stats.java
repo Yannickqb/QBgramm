@@ -5,16 +5,14 @@ package com.example.projek.Models;
  * @version 1.3
  */
 public class Stats {
-    private Player player;
-    private int yards;
-    private int completion;
-    private int td;
-    private int interception;
-    private int rushing;
+    private String  yards;
+    private String  completion;
+    private String td;
+    private String interception;
+    private String rushing;
     private Team team;
 
-    public Stats(Player player, int yards, int completion, int td, int interception, int rushing, Team team) {
-        this.player = player;
+    public Stats(String yards, String completion, String td, String interception, String rushing, Team team) {
         this.yards = yards;
         this.completion = completion;
         this.td = td;
@@ -25,34 +23,28 @@ public class Stats {
 
 
 
-    public Player getPlayer(){
-        return player;
-    }
 
-    public int getYards(Player player) {
+
+
+    public String  getYards(Player player) {
         return yards;
     }
 
-    public int getCompletion(Player player) {
+    public String getCompletion(Player player) {
         return completion;
     }
 
-    public int getTd(Player player) {
+    public String getTd(Player player) {
         return td;
     }
 
-    public int getInterception(Player player) {
+    public String getInterception(Player player) {
         return interception;
     }
 
-    public int getRushing(Player player) {
+    public String getRushing(Player player) {
         return rushing;
     }
-
-    public Team getTeam(Player player) {
-        return team;
-    }
-
 
 
 }

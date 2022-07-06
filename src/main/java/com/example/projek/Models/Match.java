@@ -22,26 +22,26 @@ public class Match {
     private int season;
 
     /**
-     * @param home home team
-     * @param guest guest team
-     * @param scoreHome score of the home team
+     * @param home       home team
+     * @param guest      guest team
+     * @param scoreHome  score of the home team
      * @param scoreGuest score of the guest team
-     * @param datum date in which the game took place
-     * @param stats the stats from the game
-     * @param season the season in which the game took place
+     * @param datum      date in which the game took place
+     * @param stats      the stats from the game
+     * @param season     the season in which the game took place
      */
     public Match(Team home, Team guest, int scoreHome, int scoreGuest, Date datum, ArrayList<Stats> stats, int season) {
         this.home = home;
         this.guest = guest;
         this.scoreHome = scoreHome;
         home.addMatch(this);
-        for (Player player: home.getPlayer()
-             ) {
+        for (Player player : home.getPlayer()
+        ) {
             player.addGame(this);
         }
         this.scoreGuest = scoreGuest;
         guest.addMatch(this);
-        for (Player player: guest.getPlayer()
+        for (Player player : guest.getPlayer()
         ) {
             player.addGame(this);
         }
@@ -54,24 +54,26 @@ public class Match {
      * @param player the player for which we need the stats
      * @return the stats for the player
      */
-    public Optional<Stats> getPlayerStats(Player player){
-        for (Stats s: stats
-             ) {
-            if (player == s.getPlayer()){
-                return Optional.of (s);
+    /*
+    public Optional<Stats> getPlayerStats(Player player) {
+        for (Stats s : stats
+        ) {
+            if (player == s.getPlayer()) {
+                return Optional.of(s);
             }
         }
-            return Optional.empty();
+        return Optional.empty();
     }
+
+     */
 
     /**
      * @return the winner of the game
      */
-    public Team getWinner(){
-        if (scoreGuest < scoreHome){
+    public Team getWinner() {
+        if (scoreGuest < scoreHome) {
             return home;
-        }
-        else {
+        } else {
             return guest;
         }
     }
@@ -108,7 +110,7 @@ public class Match {
         return season;
     }
 
-    public void addStats(Stats stats){
+    public void addStats(Stats stats) {
         this.stats.add(stats);
     }
 }

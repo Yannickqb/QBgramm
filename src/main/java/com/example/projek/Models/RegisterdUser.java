@@ -1,6 +1,7 @@
 package com.example.projek.Models;
 
 //import java.awt.image.BufferedImage;
+
 import java.util.Date;
 
 /**
@@ -49,6 +50,7 @@ public class RegisterdUser extends User {
 
     /**
      * getter
+     *
      * @return first name of the user
      */
     public String getVorname() {
@@ -57,6 +59,7 @@ public class RegisterdUser extends User {
 
     /**
      * getter
+     *
      * @return familyname of user
      */
     public String getNachname() {
@@ -69,24 +72,26 @@ public class RegisterdUser extends User {
 
     /**
      * getter
+     *
      * @return userneme of user
      */
-    public String getUsername(){
+    public String getUsername() {
         return username;
     }
 
 
     /**
      * getter
+     *
      * @param username to check the username for login
      * @param password the password fro login
      * @return the login data
      */
-    public boolean getLogin(String username, String password){
-        return (username.equals(this.username )&& password.equals(this.password));
+    public boolean getLogin(String username, String password) {
+        return (username.equals(this.username) && password.equals(this.password));
     }
 
-   // public BufferedImage getProfilePicture() {
-       // return profilePicture;
+    // public BufferedImage getProfilePicture() {
+    // return profilePicture;
     //}
 }

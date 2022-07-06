@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * this class is used to generate all Coaches
  */
-public class Coach{
+public class Coach {
     private Team team;
     private ArrayList<Match> matches;
     private ArrayList<CoachPosition> coachPositions;
@@ -20,11 +20,11 @@ public class Coach{
     private Date geburtsdatum;
 
     /**
-     * @param geburtsdatum for birth date
-     * @param vorname for firstname
-     * @param name for familiname
-     * @param team for the team
-     * @param matches for the games
+     * @param geburtsdatum  for birth date
+     * @param vorname       for firstname
+     * @param name          for familiname
+     * @param team          for the team
+     * @param matches       for the games
      * @param coachPosition to get the Coaches position
      */
     public Coach(Date geburtsdatum, String vorname, String name, Team team, ArrayList<Match> matches, CoachPosition coachPosition) {
@@ -43,9 +43,12 @@ public class Coach{
 
     /**
      * getter
+     *
      * @return the team which is coached by this coach
      */
-    public String  getTeam() {return team.getName();}
+    public String getTeam() {
+        return team.getName();
+    }
 
     public ArrayList<Match> getMatches() {
         return matches;

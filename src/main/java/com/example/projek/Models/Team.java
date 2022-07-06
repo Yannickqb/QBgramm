@@ -1,6 +1,7 @@
 package com.example.projek.Models;
 
 //import java.awt.image.BufferedImage;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -57,21 +58,21 @@ public class Team {
     }
 
     //public BufferedImage getLogo() {
-       // return logo;
+    // return logo;
     //}
 
     /**
      * @param season the season from which we want the record
      * @return winning record
      */
-    public float winningRecord(int season){
+    public float winningRecord(int season) {
         int zaeler = 0;
         float winning = 0;
-        for (Match m: history
-             ) {
-            if (season == m.getSeason()){
-                zaeler ++;
-                if (m.getWinner() == this){
+        for (Match m : history
+        ) {
+            if (season == m.getSeason()) {
+                zaeler++;
+                if (m.getWinner() == this) {
                     winning++;
                 }
             }
@@ -82,21 +83,21 @@ public class Team {
     /**
      * @param player that we want to add
      */
-    public void addPlayer(Player player){
+    public void addPlayer(Player player) {
         this.player.add(player);
     }
 
     /**
      * @param coach which we want to add
      */
-    public void addCoache(Coach coach){
+    public void addCoache(Coach coach) {
         coaches.add(coach);
     }
 
     /**
      * @param match which we want to add
      */
-    public void addMatch(Match match){
+    public void addMatch(Match match) {
         history.add(match);
     }
 }

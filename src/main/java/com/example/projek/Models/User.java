@@ -11,21 +11,21 @@ public class User {
     protected static int number = 0;
 
     public User() {
-        userid = number ++;
+        userid = number++;
     }
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.userid = number ++;
+        this.userid = number++;
 
     }
 
-    protected String getUsername(){
+    protected String getUsername() {
         return username;
     }
 
-    protected String getPassword(){
+    protected String getPassword() {
         return password;
     }
 }

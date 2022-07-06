@@ -18,19 +18,25 @@ public class DB {
 
 
     public DB() {
-        Team t1 = new Team(new ArrayList<Player>(), new ArrayList<Coach>(), new ArrayList<Match>(), "Sharks", new Date(2009,7,11), "Schaffhausen", "Shark Tank" );
-        Team t2 = new Team(new ArrayList<Player>(), new ArrayList<Coach>(), new ArrayList<Match>(), "Invaders", new Date(2013,8,1), "Langental", "Langental Stadion" );
-        Player p1 = new Player(new Date(2003,7,11),"Ledermann", "Yannick", t1, new ArrayList<Match>(), Position.QB);
-        Player p2 = new Player(new Date(2000,11,7),"Oli", "Oswald", t1, new ArrayList<Match>(), Position.RB);
-        Player p3 = new Player(new Date(2000,11,7),"Diego", "Shindele", t1, new ArrayList<Match>(), Position.RB);
-        Player p4 = new Player(new Date(2000,11,7),"Ael", "Banyard", t1, new ArrayList<Match>(), Position.TE);
-        Player p5 = new Player(new Date(2000,11,7),"Leandro", "Carwalio", t1, new ArrayList<Match>(), Position.OL);
-        Player p6 = new Player(new Date(2000,11,7),"Daniel", "Barot", t1, new ArrayList<Match>(), Position.WR);
-        Player p7 = new Player(new Date(2000,11,7),"Roman", "Frank", t1, new ArrayList<Match>(), Position.WR);
-        Player p8 = new Player(new Date(2000,11,7),"Emil", "Utubuzay", t1, new ArrayList<Match>(), Position.WR);
-        Coach c1 = new Coach(new Date(1989,12,11), "Jens", "Urben", t1, new ArrayList<Match>(), CoachPosition.HC);
-        Stats st1 = new Stats(p1, 200, 20, 5, 0, 50, t1);
-        Stats st2 = new Stats(p2, 100, 12, 2, 3, 20, t2);
+        Team t1 = new Team(new ArrayList<Player>(), new ArrayList<Coach>(), new ArrayList<Match>(), "Sharks", new Date(2009, 7, 11), "Schaffhausen", "Shark Tank");
+        Team t2 = new Team(new ArrayList<Player>(), new ArrayList<Coach>(), new ArrayList<Match>(), "Invaders", new Date(2013, 8, 1), "Langental", "Langental Stadion");
+        Stats st1 = new Stats("200", "20", "5", "0", "50", t1);
+        Stats st2 = new Stats("100", "12", "2", "3", "20", t2);
+        Stats st3 = new Stats("100", "12", "2", "3", "20", t2);
+        Stats st4 = new Stats("100", "12", "2", "3", "20", t2);
+        Stats st5 = new Stats("100", "12", "2", "3", "20", t2);
+        Stats st6 = new Stats("100", "12", "2", "3", "20", t2);
+        Stats st7 = new Stats("100", "12", "2", "3", "20", t2);
+        Stats st8 = new Stats("100", "12", "2", "3", "20", t2);
+        Player p1 = new Player(new Date(2003, 7, 11), "Ledermann", "Yannick", t1, new ArrayList<Match>(), Position.QB, st1);
+        Player p2 = new Player(new Date(2000, 11, 7), "Oli", "Oswald", t1, new ArrayList<Match>(), Position.RB, st2);
+        Player p3 = new Player(new Date(2000, 11, 7), "Diego", "Shindele", t1, new ArrayList<Match>(), Position.RB, st3);
+        Player p4 = new Player(new Date(2000, 11, 7), "Ael", "Banyard", t1, new ArrayList<Match>(), Position.TE, st4);
+        Player p5 = new Player(new Date(2000, 11, 7), "Leandro", "Carwalio", t1, new ArrayList<Match>(), Position.OL, st5);
+        Player p6 = new Player(new Date(2000, 11, 7), "Daniel", "Barot", t1, new ArrayList<Match>(), Position.WR, st6);
+        Player p7 = new Player(new Date(2000, 11, 7), "Roman", "Frank", t1, new ArrayList<Match>(), Position.WR, st7);
+        Player p8 = new Player(new Date(2000, 11, 7), "Emil", "Utubuzay", t1, new ArrayList<Match>(), Position.WR, st8);
+        Coach c1 = new Coach(new Date(1989, 12, 11), "Jens", "Urben", t1, new ArrayList<Match>(), CoachPosition.HC);
         Match m1 = new Match(t1, t2, 60, 30, new Date(2022, 05, 8), new ArrayList<Stats>(), 1);
         RegisterdPlayer rp1 = new RegisterdPlayer("qbled", "110703", new Date(2003, 07, 11), new Date(2022, 1, 7), "Yannick", "Ledermann", "yanni.ledermann@gmail.com");
         this.registerdUsers.add(rp1);
@@ -64,7 +70,7 @@ public class DB {
         this.registerdUsers.add(rp8);
         this.registerdPlayers.add(rp8);
         rp8.setReference(p8);
-        RegisterdCoach rc1 = new RegisterdCoach("coach", "1234", new Date(1989,12,11), new Date(2020, 10, 20), "Jens", "Urben", "jens.urben@gmail.com");
+        RegisterdCoach rc1 = new RegisterdCoach("coach", "1234", new Date(1989, 12, 11), new Date(2020, 10, 20), "Jens", "Urben", "jens.urben@gmail.com");
         this.registerdUsers.add(rc1);
         this.registerdCoaches.add(rc1);
         rc1.setReference(c1);
@@ -72,36 +78,37 @@ public class DB {
 
     }
 
-    public Optional<RegisterdUser> isRegisterd(String username, String password){
-        for (RegisterdUser ru: registerdUsers
-             ) {
-            if (ru.getLogin(username, password)){
-                return Optional.of(ru);
-            }
-        }
-        return Optional.empty();
-    }
-
-    public Optional<RegisterdUser> checkUsername(String username){
-        for (RegisterdUser ru: registerdUsers
+    public Optional<RegisterdUser> isRegisterd(String username, String password) {
+        for (RegisterdUser ru : registerdUsers
         ) {
-            if (ru.getUsername().equals(username)){
+            if (ru.getLogin(username, password)) {
                 return Optional.of(ru);
             }
         }
         return Optional.empty();
     }
 
-    public void addUser (String username, String password, Date geburtsdatum, String vorname, String nachname, String email){
+    public Optional<RegisterdUser> checkUsername(String username) {
+        for (RegisterdUser ru : registerdUsers
+        ) {
+            if (ru.getUsername().equals(username)) {
+                return Optional.of(ru);
+            }
+        }
+        return Optional.empty();
+    }
+
+    public void addUser(String username, String password, Date geburtsdatum, String vorname, String nachname, String email) {
         Date registerdate = new Date(LocalDateTime.now().getYear(), LocalDateTime.now().getMonthValue(), LocalDateTime.now().getDayOfMonth());
         RegisterdUser neu = new RegisterdUser(username, password, geburtsdatum, registerdate, vorname, nachname, email);
         registerdUsers.add(neu);
     }
 
-    public ArrayList<RegisterdPlayer> getPlayers(){
+    public ArrayList<RegisterdPlayer> getPlayers() {
         return registerdPlayers;
     }
-    public ArrayList<RegisterdCoach> getCoaches(){
+
+    public ArrayList<RegisterdCoach> getCoaches() {
         return registerdCoaches;
     }
 

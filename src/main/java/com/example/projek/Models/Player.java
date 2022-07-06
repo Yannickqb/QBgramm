@@ -14,7 +14,8 @@ import java.util.Optional;
  */
 public class Player {
     private Team team;
-    private ArrayList <Match> history;
+    private Stats stats;
+    private ArrayList<Match> history;
     private Position position;
     private String vorname;
     private String name;
@@ -22,14 +23,15 @@ public class Player {
 
     /**
      * @param geburtsdatum birthdate
-     * @param vorname firstname
-     * @param nachname familyname
-     * @param team team
-     * @param history record
-     * @param position Position
+     * @param vorname      firstname
+     * @param nachname     familyname
+     * @param team         team
+     * @param history      record
+     * @param position     Position
      */
-    public Player(Date geburtsdatum, String vorname, String nachname, Team team, ArrayList<Match> history, Position position) {
+    public Player(Date geburtsdatum, String vorname, String nachname, Team team, ArrayList<Match> history, Position position, Stats stats) {
         this.team = team;
+        this.stats = stats;
         team.addPlayer(this);
         this.history = history;
         this.position = position;
@@ -45,9 +47,11 @@ public class Player {
     /**
      * @return the name of the team
      */
-    public String getTeam(){return team.getName();}
+    public String getTeam() {
+        return team.getName();
+    }
 
-
+    public Stats getStats(){return stats;}
 
 
 
@@ -70,14 +74,14 @@ public class Player {
         return name;
     }
 
-    public float averigeSeasonRushing(int season){
+   /* public float averigeSeasonRushing(int season) {
         int zaeler = 0;
         float summ = 0;
-        for (Match m: history
-             ) {
-            if (season == m.getSeason()){
+        for (Match m : history
+        ) {
+            if (season == m.getSeason()) {
                 Optional<Stats> os = m.getPlayerStats(this);
-                if (! os.isEmpty()) {
+                if (!os.isEmpty()) {
                     Stats s = os.get();
                     summ += s.getRushing(s.getPlayer());
                     zaeler++;
@@ -87,11 +91,13 @@ public class Player {
         return summ / (float) zaeler;
     }
 
-    public float getWinningrec(int season, Team team){
+    */
+
+    public float getWinningrec(int season, Team team) {
         return team.winningRecord(season);
     }
 
-    public void addGame(Match match){
+    public void addGame(Match match) {
         history.add(match);
     }
 }

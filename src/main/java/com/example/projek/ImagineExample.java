@@ -1,6 +1,8 @@
 package com.example.projek;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -43,6 +45,7 @@ class ImageExample extends HelloApplication {
         //Displaying the contents of the stage
         stage.show();
     }
+
     public static void main(String args[]) {
         launch(args);
     }
